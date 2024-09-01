@@ -1,0 +1,263 @@
+/* #region plans section */
+.section-title {
+    color: #2ddf5c;
+    text-align: center;
+}
+
+.plan {
+    background: #d5ffdc;
+    text-align: center;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    /* as we want to make all plan to sit in one column*/
+    display: block;
+    width: 100%;
+    /* border-radius: 10px; */
+}
+
+.plan--highlighted {
+    background: #19b84c;
+    color: white;
+}
+
+.plan__annotation {
+    background: white;
+    color: #19b84c;
+    padding: 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    /* border-radius: 4px 4px 4px 4px; */
+    /* or */
+    border-radius: 8px
+}
+
+.plan__tittle {
+    color: #0e4f1f;
+}
+
+.plan__price {
+    color: #77947b
+}
+
+.plan--highlighted .plan__tittle {
+    color: white;
+}
+
+.plan--highlighted .plan__price {
+    color: #0e4f1f;
+}
+
+.plan__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.plan__features li {
+    margin: 0.5rem 0;
+}
+
+#key-features {
+    background: #ff1b68;
+    margin-top: 5rem;
+    padding: 1rem;
+}
+
+#key-features .section-title {
+    color: white;
+    margin: 2rem;
+}
+
+.key-feature__list {
+    list-style: none;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.key-feature {
+    display: block;
+    list-style: none;
+}
+
+.key-feature__image {
+    background: #ffcede;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #424242;
+    border-radius: 50%;
+    /* as  0 (for vertical margin and auto for the horizontal margin) */
+    margin: 0 auto;
+    margin: auto;
+}
+
+.trusting{
+    background: url("images/trusting-icon.png"), white;
+    /* padding: 20px; */
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.uptime{
+    background: url(images/uptime-icon.png), white;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.lightning-fast{
+    background: url(images/lightning-fast-icon.png), white;
+    background-size: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.key-feature__description {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+}
+
+/* #endregion */
+
+#product-overview {
+    /* background: #ff1b68; */
+
+    /* Shorthand property */
+    background: url("./images/freedom.jpg") left 10% bottom 80%/ cover no-repeat;
+    /* background: url("./images/freedom.jpg") left 10% bottom 20%/ cover no-repeat border-box padding-box fixed; */
+    /* background-image: url("./images/freedom.jpg");
+    background-size: cover;
+    background-position: left 10% bottom 20%;
+    background-repeat: no-repeat; */
+    /* background-origin: border-box;
+    background-clip: content-box;
+    background-attachment: ;
+    border: 5px dashed red; */
+    padding: 10px;
+    /* border-style: solid;
+    border-color: black;
+    border-width: 5px;  
+    */
+    /* why 3.5rem? As the height of the main-header brand is 2.5rem and it top and bottom margin of 0.5rem padding for the navbar = 3.5rem total navbar height */
+    /* As margin is defined for main element in shared.css */
+    /* margin-top: 3.5rem; */
+    width: 100vw;
+    height: 33vh;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#product-overview h1 {
+    color: white;
+    font-family: 'Anton', sans-serif;
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+    font-size: 1.6rem;
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    z-index: 200;
+    /* z-index of modal should higher than that of backdrop as we want to make it appear above the backdrop*/
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    background: white;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal__title {
+    text-align: center;
+    margin: 0 0 1rem 0;
+  }
+  .modal__actions {
+    text-align: center;
+  }
+  .modal__action {
+    border: 1px solid #0e4f1f;
+    background: #0e4f1f;
+    text-decoration: none;
+    color: white;
+    font: inherit;
+    padding: 0.5rem 1rem;
+    cursor: pointer; 
+    /* when we hover on the button we should get pointer */
+  }
+  
+  .modal__action:hover,
+  .modal__action:active {
+    background: #2ddf5c;
+    border-color: #2ddf5c;
+  }
+  
+  .modal__action--negative {
+    background: red;
+    border-color: red;
+  }
+  
+  .modal__action--negative:hover,
+  .modal__action--negative:active {
+    background: #ff5454;
+    border-color: #ff5454;
+  }
+
+/* Below width - 640px (40rem) mobile view will start 
+   So below media query specifies the feature for desktop devices or devices having width above 640px
+*/
+@media (min-width: 50rem)  and (min-height: 45rem){
+/* @media (min-width:40rem) and (orientation: portrait){ not good for desktop screen*/
+    /*for landscape mode when height is small*/
+    #product-overview{
+        height: 45vh;
+        background-position: 50% 25%;
+    }
+    #product-overview h1{
+        font-size: 3rem;
+    }
+
+}
+@media (min-width :50rem), (orientation: landscape){
+
+    .plan__list {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .plan{
+        /* as we want to make all plan to sit in one row*/
+        display: inline-block;
+        width: 30%;
+        margin: 0.5rem;
+        vertical-align: middle;
+        /* below 13 rem (208px) size of plan will not decreases */
+        min-width: 13rem;
+        /* max width is 400px above that it won't increases*/
+        max-width: 25rem;
+    }
+
+    .plan--highlighted{
+        /* box-shadow: x-axis(right) y-axis(bottom) bluriness1 bluriness2 color*/
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .key-feature {
+        display: inline-block;
+        /* text-align: center; */
+        margin: 0.5rem;
+        width: 30%;
+        vertical-align: top;
+        max-width: 25rem;
+        list-style: none;
+    }
+}
+
+
+/* h1 {
+    font-family: sans-serif;
+} */

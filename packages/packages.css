@@ -1,0 +1,146 @@
+main{
+    padding-top: 2rem;
+}
+
+.background{
+    background: url("../images/plans-background.jpg") center/cover;
+    filter: grayscale(40%);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.package{
+    background: #d5ffdc;
+    border: 4px solid #0e4f1f;
+    margin: 1rem 0;
+    width: 80%;
+    margin-left: 0;
+    border-left: none;
+    position: relative;
+    z-index: 1;
+}
+
+.package__a{
+    text-decoration: none;
+    padding: 2rem;
+    display: block;
+    color: inherit;
+}
+.package-title{
+    color: black;
+}
+/* 
+->Now we want to give max z-index to package__badge
+=> But if we give that then it go above the navigation bar as well
+=> so in that we have to create stacking context to the parent element i.e package
+=> This means elements inside this the parent element,the z-index will only have an impact onto the order of these elements       inside the package element.
+=> For fixed the new stacking context created automatically without adding z-index
+=> But for position- absolute and relative we have to add z-index explicitly in order to create a stacking context.
+=> So for adding eg. z-index:100 in package_badge element we have add z-index in the package element 
+=> And that z-index should be less than the z-index of the main-header in shared.css file
+=> As z-index: 2; in main-header (shared.css) so we can set z-index: 1; in package element;
+
+ */
+.package__badge{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 20px;
+    font-size: 12px;
+    color: white;
+    background: #ff5454;
+    padding: 8px;
+    z-index: 100; 
+    /* please go through the above comment */
+}
+
+.package-subtitle{
+    color: #77947b;
+}
+
+.package-info{
+    background: white;
+    border: 1px solid #0e4f1f;
+    color: #0e4f1f;
+    padding: 15px;
+}
+
+.package:hover,
+.package:active{
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    border-color: #ff5454;
+    /* border-color: #ff5454 !important; */
+}
+
+
+/* .package-highlighted{
+    background: #0e4f1f;
+} */
+/* 
+.package-highlighted .package-title{
+    color: white;
+} */
+
+/* 
+fix for float to position the elements */
+.clearfix{
+    clear:both;
+}
+
+#plus{
+    background: rgba(213, 255, 220, 0.95);
+   
+}
+
+#free{
+    background:  rgba(234, 252,237, 0.95);
+    float: right;
+    border-left:  4px solid #0e4f1f;
+    border-right: none; 
+    /* text-align: right; */
+}
+
+/* while hovering to this free plan we not getting left red border even though we have already added the hover psuedo select
+as the specificity of ID is higher than psuedo selector 
+So for fixing this we need to add hover psuedo class for free id selector
+*/
+
+#free:hover,
+#free:active{
+    border-left-color: #ff5454;
+}
+
+
+#premium{
+    background: rgba(14, 79,31, 0.95);
+}
+
+#premium .package-title{
+    color: white;
+}
+
+#premium .package__subtitle{
+    color: #bbb;
+}
+
+@media (min-width: 50rem){
+    main {
+      margin: 3rem auto;
+      max-width: 1050px;
+    }
+}
+
+@media (min-width: 1050px){
+    .package {
+        border-left: 4px solid #0e4f1f;
+    }
+    #free{
+        border-right: 4px solid #0e4f1f; 
+    }
+    #free:hover,
+    #free:active{
+        border-right-color: #ff5454;
+    }
+}
